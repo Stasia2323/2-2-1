@@ -60,7 +60,7 @@ public class User {
    }
 
    @OneToOne
-   @JoinColumn(name = "car_id")
+   @JoinColumn
    private Car car;
 
    public Car getCar() {
@@ -76,6 +76,15 @@ public class User {
       this.lastName = lastName;
       this.email = email;
       this.car = car;
+   }
+   @Override
+   public String toString() {
+      return "User {" +
+              "id=" + id +
+              ", firstName='" + firstName + '\'' +
+              ", lastName='" + lastName + '\'' +
+              ", email='" + email + '\'' +
+              '}';
    }
 }
 

@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Car {
     @Id
     @GeneratedValue
-    @Column
+    @Column(name = "id")
     private Long id;
 
     @Column
@@ -22,9 +22,10 @@ public class Car {
     public Car() {
     }
 
-    public Car(String model, int series) {
+    public Car(String model, int series, User user) {
         this.model = model;
         this.series = series;
+        this.user=user;
     }
 
 
@@ -59,5 +60,14 @@ public class Car {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Car {" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", series=" + series +
+                '}';
     }
 }
